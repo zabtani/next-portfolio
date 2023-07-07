@@ -2,8 +2,8 @@
 import useLayoutStore from '@/app/store/useLayoutStore';
 import ModeButton from './mode';
 import NavLink, { NavLinkProps } from './navLink';
-import Button from '@/app/UI/button';
 import { usePathname } from 'next/navigation';
+import Button from '../UI/button';
 
 const navLinks: NavLinkProps[] = [
   { text: 'Home', path: '/' },
@@ -31,8 +31,8 @@ const NavList = () => {
           <NavLink key={props.text} {...props} active={currentPathName === props.path} />
         ))}
         <li className=" flex w-full justify-end  p-1 pl-0 pt-0 md:p-0  ">
-          <ModeButton className={sideButtonClass} />
-          <Button className={sideButtonClass}>
+          <ModeButton />
+          <Button>
             <GithubSVG />
           </Button>
         </li>

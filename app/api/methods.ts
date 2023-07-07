@@ -9,7 +9,7 @@ const API = {
   getProject: async (id: string): Promise<ProjectProperties> => REQUEST.get(`project/?id=${id}`).then(handle),
   getSummarizedProjects: async (): Promise<SummarizedProjectProperties[]> =>
     REQUEST.get('projects').then(handle),
-
+  getMainPorfolioInfo: async (): Promise<any> => REQUEST.get('settings').then(handle),
   sendForm: async (data: { message: string; name: string; company: string; phone: string }) =>
     await REQUEST.post('send/', data),
 };

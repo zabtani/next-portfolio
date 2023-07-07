@@ -9,7 +9,7 @@ const Main = ({ children }: PropsWithChildren) => {
       style={{ overflow: 'overlay' }}
       className={`${
         pathname !== '/' ? 'bg-hero-pattern-transparent  dark:bg-hero-pattern-dark-transparent' : ''
-      }  flex flex-col w-full h-full `}
+      } flex flex-col w-full h-full `}
     >
       {children}
     </main>

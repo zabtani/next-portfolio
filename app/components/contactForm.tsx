@@ -1,11 +1,12 @@
 'use client';
 import { useForm } from 'react-hook-form';
-import Input from '../UI/input';
-import TextArea from '../UI/textArea';
+
 import API from '../api/methods';
 import { useMutation } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import Button from '../UI/button';
+import Input from './UI/input';
+import TextArea from './UI/textArea';
+import Button from './UI/button';
 
 const ContactForm = () => {
   const {
@@ -65,7 +66,7 @@ const ContactForm = () => {
         }}
       />
       {isLoading && <div>sending form</div>}
-      <Button className="self-center w-56 justify-center pr-5" type="submit" variant="secondary">
+      <Button className="self-center w-56 justify-center pr-5" type="submit">
         <SendIcon />
         Send!
       </Button>

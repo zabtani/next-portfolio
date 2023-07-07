@@ -1,12 +1,12 @@
 'use client';
-import Button from '@/app/UI/button';
 import { useTheme } from 'next-themes';
+import Button from '../UI/button';
 
-const Mode = ({ className }: { className: string }) => {
+const Mode = ({ className }: { className?: string }) => {
   const { setTheme, theme } = useTheme();
 
   return (
-    <Button className={className} onClick={() => (theme === 'dark' ? setTheme('light') : setTheme('dark'))}>
+    <Button onClick={() => (theme === 'dark' ? setTheme('light') : setTheme('dark'))}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

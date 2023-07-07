@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import API from '../api/methods';
 import { SummarizedProjectProperties } from '../interface';
-import ProjectSummary from '../projectSummary';
-import PageHeading from '../UI/pageHeadeing';
+import ProjectSummary from './projectSummary';
 import { Animation, getSlideAnimation } from '../utils';
-import PageContent from '../UI/pageContent';
+import PageContent from '../components/UI/pageContent';
+import PageHeading from '../components/UI/pageHeadeing';
 
 const Projects = async () => {
   const projects = await API.getSummarizedProjects();

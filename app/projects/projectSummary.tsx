@@ -1,7 +1,7 @@
 'use client';
-import { SummarizedProjectProperties } from './interface';
+import { SummarizedProjectProperties } from '../interface';
 import { Tilt } from 'react-tilt';
-import SkeletonImage from './components/skeletonImage';
+import SkeletonImage from '../components/skeletonImage';
 const ProjectSummary = ({ name, summary, preview_image }: Omit<SummarizedProjectProperties, 'id'>) => {
   return (
     <Tilt

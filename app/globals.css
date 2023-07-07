@@ -6,14 +6,14 @@
   --foreground-rgb: 0, 0, 0;
   --background-end-rgb: 214, 219, 220;
   --background-start-rgb: 244, 244, 244;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-end-rgb: 0, 0, 0;
-    --background-start-rgb: 20, 20, 20;
-  }
+  --color-line-1: #3b82f6;
+  --color-line-2: #2563eb;
+  --color-line-3: #1d4ed8;
+  --color-line-4: #1e40af;
+  --color-line-1-d: #be123c;
+  --color-line-2-d: #9f1239;
+  --color-line-3-d: #881337;
+  --color-line-4-d: #4c0519;
 }
 
 body {
@@ -67,6 +67,176 @@ body {
   60%,
   100% {
     opacity: 0;
+  }
+}
+
+nav::after {
+  content: '';
+  width: 100%;
+  height: 4px;
+  bottom: 0;
+  position: absolute;
+  background: linear-gradient(
+    to left,
+    var(--color-line-1),
+    var(--color-line-2),
+    var(--color-line-3),
+    var(--color-line-4),
+    transparent
+  );
+}
+.dark nav::after {
+  background: linear-gradient(
+    to left,
+    var(--color-line-1-d),
+    var(--color-line-2-d),
+    var(--color-line-3-d),
+    var(--color-line-4-d),
+    transparent
+  );
+}
+
+.p-container > div,
+.p-container > p {
+  position: relative;
+}
+.p-container {
+  position: relative;
+}
+.p-container::before,
+.p-container::after {
+  z-index: 0 !important;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  content: '';
+  height: 4px;
+  width: 50%;
+  animation: line-w 900ms ease-in-out;
+}
+.p-container::after {
+  top: 0;
+  left: unset;
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--color-line-1),
+    var(--color-line-2),
+    var(--color-line-3),
+    var(--color-line-4),
+    transparent
+  );
+}
+.dark .p-container::after {
+  background: linear-gradient(
+    to left,
+    var(--color-line-1-d),
+    var(--color-line-2-d),
+    var(--color-line-3-d),
+    var(--color-line-4-d),
+    transparent
+  );
+}
+
+.p-side-edge::after,
+.p-side-edge::before {
+  background: linear-gradient(
+    to bottom,
+    var(--color-line-1),
+    var(--color-line-2),
+    var(--color-line-3),
+    var(--color-line-4),
+    transparent
+  );
+  bottom: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+  content: '';
+  height: 50%;
+  width: 4px;
+  animation: line-h 900ms ease-in-out;
+  animation-delay: 400ms;
+}
+.dark .p-side-edge::after,
+.dark .p-side-edge::before {
+  background: linear-gradient(
+    to bottom,
+    var(--color-line-1-d),
+    var(--color-line-2-d),
+    var(--color-line-3-d),
+    var(--color-line-4-d),
+    transparent
+  ) !important;
+}
+.p-side-edge::before {
+  left: 0;
+  top: unset;
+  bottom: 0;
+  right: unset;
+  background: linear-gradient(
+    to top,
+    var(--color-line-1),
+    var(--color-line-2),
+    var(--color-line-3),
+    var(--color-line-4),
+    transparent
+  ) !important;
+}
+.dark .p-side-edge::before {
+  left: 0;
+  top: unset;
+  bottom: 0;
+  right: unset;
+  background: linear-gradient(
+    to top,
+    var(--color-line-1-d),
+    var(--color-line-2-d),
+    var(--color-line-3-d),
+    var(--color-line-4-d),
+    transparent
+  ) !important;
+}
+.p-container::before {
+  background: linear-gradient(
+    to right,
+    var(--color-line-1),
+    var(--color-line-2),
+    var(--color-line-3),
+    var(--color-line-4),
+    transparent
+  );
+}
+.dark .p-container::before {
+  background: linear-gradient(
+    to right,
+    var(--color-line-1-d),
+    var(--color-line-2-d),
+    var(--color-line-3-d),
+    var(--color-line-4-d),
+    transparent
+  );
+}
+@keyframes line-h {
+  0% {
+    height: 50%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 50%;
+  }
+}
+@keyframes line-w {
+  0% {
+    width: 50%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 50%;
   }
 }
 @layer components {
@@ -173,4 +343,7 @@ input[type='number'] {
   .project-content {
     flex-direction: column-reverse;
   }
+}
+.button-group button {
+  margin: 0;
 }

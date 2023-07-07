@@ -1,7 +1,7 @@
-import LinkButton, { LinkButtonProps } from '@/app/UI/linkButton';
+import LinkButton, { LinkButtonProps } from '@/app/components/UI/linkButton';
 
-const DemoButton = ({ children, link }: LinkButtonProps) => (
-  <LinkButton link={link}>
+const DemoButton = ({ children, ...rest }: LinkButtonProps) => (
+  <LinkButton {...rest}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

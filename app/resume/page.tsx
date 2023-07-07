@@ -1,9 +1,9 @@
-import PageHeading from '../UI/pageHeadeing';
+import PageContent from '../components/UI/pageContent';
+import PageHeading from '../components/UI/pageHeadeing';
+import Paragraph from '../components/UI/paragraph';
 import ResumePDF from '../components/resumePdf';
-import Paragraph from '../UI/paragraph';
-import PageContent from '../UI/pageContent';
 
-const Resume = async () => {
+const Resume = () => {
   return (
     <PageContent>
       <PageHeading>Resume</PageHeading>

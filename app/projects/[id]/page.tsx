@@ -2,10 +2,11 @@ import API from '../../api/methods';
 import Carousel from '@/app/components/carousle';
 import SkeletonImage from '@/app/components/skeletonImage';
 import TechGroup from '@/app/components/techs';
-import PageContent from '@/app/UI/pageContent';
 import Tags from './tags';
 import PageButtons from './buttons';
-import Paragraph from '@/app/UI/paragraph';
+import PageContent from '@/app/components/UI/pageContent';
+import Paragraph from '@/app/components/UI/paragraph';
+import { Animation } from '@/app/utils';
 
 const Project = async ({ params }: any) => {
   const project = await API.getProject(`${params.id}`);
@@ -25,18 +26,17 @@ const Project = async ({ params }: any) => {
         </div>
       </div>
       <div className="flex gap-4 mt-4">
-        <div className="flex flex-col gap-2">
-          <Paragraph classNames="self-start md:mt-0 min-w-[250px] w-full">{project.info}</Paragraph>
-          <div className="flex p-1.5  pl-0  gap-1">
-            <TechGroup techs={project.techs} />
+        <Paragraph variant="div" classNames="self-start md:mt-0 min-w-[250px] w-full">
+          <div className="flex p-1.5  pl-0  gap-1 relative  ">
+            <TechGroup animation={Animation.right} techs={project.techs} />
           </div>
-          <div className="flex flex-wrap gap-2 mt-4">
-            <PageButtons.RepoButton link={project.links.repo_url}>Github Repo</PageButtons.RepoButton>
-            <PageButtons.DemoButton link={project.links.demo_url}>Live Demo</PageButtons.DemoButton>
-            <PageButtons.AllProjects link="/projects">All Projects</PageButtons.AllProjects>
+          <p> {project.info}</p>
+          <div className="button-group flex  p-2.5  pl-0 text-sm gap-1 w-full">
+            <PageButtons.AllProjects href="/projects">Back</PageButtons.AllProjects>
+            <PageButtons.RepoButton href={project.links.repo_url}>Repo</PageButtons.RepoButton>
+            <PageButtons.DemoButton href={project.links.demo_url}>Demo</PageButtons.DemoButton>
           </div>
-        </div>
-
+        </Paragraph>
         <div className="flex min-w-[650px] h-[365px] justify-between">
           <Carousel loop skipSnaps={false}>
             {project.images.map((src: string, index: number) => {

@@ -1,6 +1,6 @@
 'use client';
-import Button from '@/app/UI/button';
 import useLayoutStore from '@/app/store/useLayoutStore';
+import Button from '../UI/button';
 
 const MenuButton = () => {
   const toggle = useLayoutStore((store) => store.toggleMobileMenu);

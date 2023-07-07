@@ -1,10 +1,10 @@
 'use client';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { BE_URL } from '../api/client';
-import { PropsWithChildren, useEffect, useState } from 'react';
-import Button from '../UI/button';
+import { PropsWithChildren, useEffect } from 'react';
 import useWindowSize from './hooks/useWindowSize';
 import Skeleton from './skeleton';
+import Button from './UI/button';
 const ResumePDF = () => {
   useEffect(() => {
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -41,7 +41,7 @@ const ResumePDF = () => {
 export default ResumePDF;
 
 const DownloadButton = ({ children }: PropsWithChildren) => (
-  <Button variant="secondary" type="submit" className="mb-6 self-center min-w-[215px]">
+  <Button type="submit" className="mb-6 self-center ">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
